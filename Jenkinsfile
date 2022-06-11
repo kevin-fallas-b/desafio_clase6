@@ -1,6 +1,9 @@
 pipeline {
     agent {
-        docker { image 'node:16.13.1-alpine' }
+        docker { 
+          image 'node:16.13.1-alpine'
+          args '--mount type=volume,src=deploy_app,dst=/tmp -u 0:0'
+        }
     }
 
     stages {
@@ -30,13 +33,13 @@ pipeline {
 
         stage('Initialize Web Server') {
             steps {
-                sh 'service nginx start'
+                echo 'service nginx start'
             }
         }
 
         stage('Deploy Application') {
             steps {
-                sh 'cp dist/clase6/* /var/www/html/'
+                sh 'cp dist/clase6/* /tmp/'
             }
         }
     }
