@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent dockerfile {
+        args '--mount type=volume,src=deploy_app,dst=/tmp -u 0:0'
+      }
 
     stages {
         stage('Install Dependencies') {
@@ -34,7 +36,7 @@ pipeline {
 
         stage('Deploy Application') {
             steps {
-                sh 'cp dist/clase6/* /usr/share/nginx/html'
+                sh 'cp dist/clase6/* /tmp/'
             }
         }
     }
