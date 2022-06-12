@@ -69,3 +69,6 @@ Para el deployment de la aplicacion, se debe de copiar los archivos generados en
 ## Demostracion
 
 Si todo el proceso se realiza de manera exitosa podremos visualizar nuestra version de Aplicacion de Angular en nuestro localhost por el puerto 8081
+
+
+añadiendo un edit 
