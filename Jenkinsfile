@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker { 
           image 'node:16.13.1-alpine'
-          args '--mount type=volume,src=deploy_app,dst=/tmp -u 0:0'
+          args '-u root:sudo --mount type=volume,src=deploy_app,dst=/tmp -u 0:0'
         }
     }
 
